@@ -15,9 +15,42 @@ body {
   flex-direction: column;
 }
 
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fafafa;
+  margin-bottom: 2rem;
+}
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+select {
+  width: 50px;
+  height: 35px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #fafafa;
+  color: #fafafa;
+  font-size: 1.25rem;
+  font-weight: bold;
+  outline: none;
+}
+
+option {
+  color: #191919;
+  text-align: center;
+}
+
+.solveBtn {
+  margin: 2rem 0rem;
+  padding: 0.25rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
 }
