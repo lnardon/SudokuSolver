@@ -8,12 +8,25 @@
       name="description"
       content="A simple website to find a solution for Sudoku puzzles."
     />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
     <script defer src="./script.js"></script>
     <title>Sudoku Solver</title>
   </head>
   <body>
     <h1 class="title">Sudoku Solver</h1>
+    <div class="feedback">
+      <h4>
+        A solution could not be found. Try adding or changing numbers on the
+        board and click on the button "Find Solution".
+      </h4>
+    </div>
     <div class="container">
       <div class="board">
         <div class="row0">
@@ -1007,8 +1020,12 @@
           </select>
         </div>
       </div>
-      <button class="solveBtn" onclick="handleSolver()">Solve</button>
-      <div class="feedback"></div>
+      <button class="solveBtn button" onclick="handleSolver()">
+        Find Solution
+      </button>
+      <button class="clearBtn button" onclick="clearBoard()">
+        Clear Board
+      </button>
     </div>
   </body>
 </html>

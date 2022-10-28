@@ -13,13 +13,32 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: "Poppins", sans-serif;
 }
 
 .title {
   font-size: 3rem;
   font-weight: bold;
   color: #fafafa;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.feedback {
+  display: none;
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  margin-bottom: 2rem;
+  background-color: rgba(255, 4, 4, 0.15);
+  border: 2px solid rgba(255, 4, 4, 1);
+}
+
+.feedback > h4 {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #fff;
 }
 
 .container {
@@ -33,6 +52,8 @@ body {
   border: 1px solid #fff;
   border-radius: 0.5rem;
   padding: 1.5rem;
+  margin-bottom: 3rem;
+  min-width: 590px;
 }
 
 .row0 > select:nth-child(3n),
@@ -69,7 +90,6 @@ select {
   height: 35px;
   cursor: pointer;
   background-color: transparent;
-  border: none;
   border: 1px solid #fafafa;
   color: #fafafa;
   font-size: 1.25rem;
@@ -84,10 +104,51 @@ option {
   text-align: center;
 }
 
-.solveBtn {
-  margin: 2rem 0rem;
-  padding: 0.25rem 2rem;
+.button {
+  padding: 0.75rem 0rem;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 0.25rem;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 175px;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.solveBtn {
+  background-color: #0be377;
+  margin-bottom: 0.5rem;
+}
+
+.clearBtn {
+  background-color: transparent;
+  border: 1px solid #0be377;
+  color: #fff;
+}
+
+@keyframes popup {
+  from {
+    clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
+    opacity: 0;
+  }
+
+  to {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+    opacity: 1;
+  }
+}
+
+@keyframes popout {
+  from {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+    opacity: 1;
+  }
+
+  to {
+    clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
+    opacity: 0;
+  }
 }
