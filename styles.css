@@ -16,10 +16,10 @@ body {
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #fafafa;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .container {
@@ -29,17 +29,54 @@ body {
   flex-direction: column;
 }
 
+.board {
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.row0 > select:nth-child(3n),
+.row1 > select:nth-child(3n),
+.row2 > select:nth-child(3n),
+.row3 > select:nth-child(3n),
+.row4 > select:nth-child(3n),
+.row5 > select:nth-child(3n),
+.row6 > select:nth-child(3n),
+.row7 > select:nth-child(3n),
+.row8 > select:nth-child(3n) {
+  margin-right: 1.5rem;
+}
+
+.row0 > select:last-child,
+.row1 > select:last-child,
+.row2 > select:last-child,
+.row3 > select:last-child,
+.row4 > select:last-child,
+.row5 > select:last-child,
+.row6 > select:last-child,
+.row7 > select:last-child,
+.row8 > select:last-child {
+  margin-right: 0rem;
+}
+
+.row2,
+.row5 {
+  margin-bottom: 1.5rem;
+}
+
 select {
   width: 50px;
   height: 35px;
   cursor: pointer;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #fafafa;
+  border: 1px solid #fafafa;
   color: #fafafa;
   font-size: 1.25rem;
   font-weight: bold;
   outline: none;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
 }
 
 option {
