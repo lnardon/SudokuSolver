@@ -1,4 +1,4 @@
-const board = [
+let board = [
   [" ", " ", " ", "7", "9", " ", " ", "5", " "],
   ["3", "5", "2", " ", " ", "8", " ", "4", " "],
   [" ", " ", " ", " ", " ", " ", " ", "8", " "],
@@ -11,6 +11,7 @@ const board = [
 ];
 
 let selects = Array.from(document.getElementsByTagName("select"));
+
 selects.forEach((el, index) => {
   el.addEventListener("change", (e) => {
     board[parseInt(e.target.attributes[0].nodeValue)][
@@ -37,12 +38,11 @@ function isValid(board, row, col, alternative) {
 function solveBoard() {
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
-      if (board[i][j] == " ") {
+      if (board[i][j] === " ") {
         for (let k = 1; k <= 9; k++) {
           let stringK = k.toString();
           if (isValid(board, i, j, stringK)) {
             selects[9 * i + j].value = k;
-            selects[9 * i + j].style.backgroundColor = "#C20A00";
             board[i][j] = stringK;
             if (solveBoard()) {
               selects[9 * i + j].style.backgroundColor = "#0BE377";
@@ -50,6 +50,8 @@ function solveBoard() {
               return true;
             } else {
               board[i][j] = " ";
+              selects[9 * i + j].style.backgroundColor = "transparent";
+              selects[9 * i + j].value = " ";
             }
           }
         }
@@ -61,9 +63,36 @@ function solveBoard() {
 }
 
 function handleSolver() {
+  document.getElementsByClassName("feedback")[0].style.display = "none";
   document.getElementsByClassName("solveBtn")[0].disabled = true;
   if (!solveBoard()) {
-    alert("Solution could not be found.");
+    document.getElementsByClassName("feedback")[0].style.display = "block";
+    document.getElementsByClassName("feedback")[0].style.animation =
+      "popup 0.5s cubic-bezier(0.215, 0.610, 0.355, 1) forwards";
   }
   document.getElementsByClassName("solveBtn")[0].disabled = false;
+}
+
+function clearBoard() {
+  selects.forEach((select) => {
+    select.value = " ";
+    select.style.backgroundColor = "transparent";
+    select.style.color = "white";
+  });
+  board = [...Array(9)].map(() => [
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+  ]);
+  document.getElementsByClassName("feedback")[0].style.animation =
+    "popout 0.5s cubic-bezier(0.215, 0.610, 0.355, 1) forwards";
+  setTimeout(() => {
+    document.getElementsByClassName("feedback")[0].style.display = "none";
+  }, 400);
 }
